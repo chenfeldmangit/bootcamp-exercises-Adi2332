@@ -1,0 +1,82 @@
+body {
+    font-size: 15px;
+    font-family: "Comic Sans MS";
+}
+
+#stream,
+#menu {
+    display: inline-block;
+    margin: 1em;
+}
+
+#stream {
+    position: relative;
+    left: 25em;
+}
+
+#menu {
+    position: fixed;
+    top: 0;
+}
+
+button {
+    border-radius: 1em;
+    font-weight: bold;
+    text-align: left;
+    margin: 1em;
+    width: 15em;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    padding: 0em 0em 0em 2em;
+}
+
+.menu-button:hover {
+    background: blueviolet;
+    color: white;
+}
+
+.icon {
+    width: 3em;
+    height: 2em;
+}
+
+.bird{
+    margin: 1em;
+}
+
+.tweet-button {
+    background: blueviolet;
+    color: white;
+    padding: 1em 0 1em 0;
+    text-align: center;
+}
+
+.profile-img {
+    position: sticky;
+    width: 50px;
+    height: 50px;
+    border-radius: 1em;
+    padding: 1em;
+}
+
+.post {
+    border: purple 2px solid;
+    border-radius: 1em;
+    max-width: 50em;
+    margin: 1em;
+}
+
+.post-text,
+.post-title{
+    max-width: 80%;
+    position: relative;
+    left: 6em;
+    top: -5em;
+}
+
+.post-title{
+    font-weight: bold;
+}
