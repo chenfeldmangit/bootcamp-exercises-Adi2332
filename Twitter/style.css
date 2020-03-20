@@ -1,0 +1,164 @@
+.container {
+    display: flex;
+    font-size: 15px;
+    font-family: "Comic Sans MS", serif;
+    align-items: flex-start;
+}
+
+#stream,
+#follow,
+#menu {
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+#follow,
+#menu {
+    flex-grow: 1;
+    width: 1em;
+}
+
+#stream {
+    flex-grow: 4;
+    width: 2em;
+    border-left: 1px solid #e6ecf0;
+    border-right: 1px solid #e6ecf0;
+    margin-bottom: 10em;
+}
+
+.menu-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 3em;
+    width: 15em;
+    align-items: center;
+    margin: 0.5em;
+    border-radius: 3em;
+    background: none;
+    border: none;
+}
+
+.menu-button:hover {
+    background: #e9bfff;
+}
+
+.button-label {
+    font-family: "Comic Sans MS", serif;
+    font-size: 1.5em;
+}
+
+.button-icon {
+    margin: 0 1em 0 2em;
+}
+
+.icon-color {
+    fill: purple;
+}
+
+.menu-icon {
+    width: 2.5em;
+    height: 2.5em;
+    margin: 0 0 0 1em;
+    align-self: flex-start;
+}
+
+.post-action:hover,
+.tweet-button {
+    background: #e9bfff;
+    justify-content: center;
+}
+
+.profile-img {
+    width: 3em;
+    height: 3em;
+    border-radius: 3em;
+    margin: 0 1em 0 1em;
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    width: border-box;
+    border: 1px solid #e6ecf0;
+}
+
+.post:hover{
+    background: #f3f3f3;
+}
+
+.post-header {
+    padding: 1em 0 0 0;
+    display: flex;
+}
+
+.post-title {
+    font-weight: bold;
+}
+
+.post-text {
+    margin-right: 2em;
+    margin-left: 5em;
+    width: border-box;
+}
+
+#stream-title{
+    position: fixed;
+    top: 0;
+    color: purple;
+    z-index: 99;
+    background: white;
+    padding-top: 1em;
+    padding-left: 1em;
+    margin-top: 0;
+    border-bottom: 1px solid #e6ecf0;
+    padding-right: 35.9em;
+}
+
+
+#post-stream{
+    position: relative;
+    top: 5em;
+}
+
+#write-post{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+}
+
+.post-actions{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5em;
+    margin-right: 4em;
+}
+
+.add-to-post{
+    margin-top: 1em;
+}
+
+.post-attachment{
+    max-width: 200em;
+    max-height: 20em;
+    align-self: flex-end;
+    margin-right: 5em;
+    border-radius: 2em;
+    margin-bottom: 1em;
+}
+
+.action-on-post{
+    display: flex;
+    margin-bottom: 1em;
+    margin-left: 5em;
+}
+
+.post-action{
+    border: none;
+    background: none;
+    width: 3em;
+    height: 3em;
+    align-items: flex-start;
+    border-radius: 2em;
+}
