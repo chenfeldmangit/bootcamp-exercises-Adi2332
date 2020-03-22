@@ -17,6 +17,7 @@
 #menu {
     flex-grow: 1;
     width: 1em;
+    margin-top: 0;
 }
 
 #stream {
@@ -24,7 +25,8 @@
     width: 2em;
     border-left: 1px solid #e6ecf0;
     border-right: 1px solid #e6ecf0;
-    margin-bottom: 10em;
+    margin-top: 0;
+    position: relative;
 }
 
 .menu-button {
@@ -70,12 +72,16 @@
     justify-content: center;
 }
 
+#follow-suggestions,
+#search{
+    background: #f7ecff;
+    border-radius: 2em;
+    border: none;
+}
+
 #search{
     display: flex;
     align-items: center;
-    background: #f5dbff;
-    border-radius: 3em;
-    border: none;
     height: 2.5em;
 }
 
@@ -85,6 +91,7 @@
     position: relative;
     left: 5em;
     height: 2.5em;
+    width: 75%;
 }
 
 #search-icon{
@@ -110,6 +117,7 @@
     background: #f3f3f3;
 }
 
+.follow-suggestion-header,
 .post-header {
     padding: 1em 0 0 0;
     display: flex;
@@ -126,22 +134,16 @@
 }
 
 #stream-title{
-    position: fixed;
+    position: sticky;
     top: 0;
+    width: 100%;
     color: purple;
     z-index: 99;
     background: white;
-    padding-top: 1em;
-    padding-left: 1em;
-    margin-top: 0;
     border-bottom: 1px solid #e6ecf0;
-    padding-right: 35.9em;
-}
-
-
-#post-stream{
-    position: relative;
-    top: 5em;
+    margin: 0;
+    padding-bottom: 1em;
+    padding-top: 0.5em;
 }
 
 #write-post{
@@ -183,4 +185,36 @@
     height: 3em;
     align-items: flex-start;
     border-radius: 2em;
+}
+
+#write-post-text{
+    width: 98%;
+}
+
+#follow-suggestions{
+    margin-top: 1em;
+}
+
+.follow-suggestion{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    left: 0;
+}
+
+.follow-button{
+    height: 80%;
+    border-radius: 2em;
+    margin-right: 1em;
+    width: 35%;
+    background: none;
+    border: 3px solid #d9dfe3;
+}
+
+#follow-suggestions-title{
+    padding: 1em;
+    border-bottom: 2px #d9dfe3 solid;
+    margin-top: 0;
+    margin-bottom: 0;
 }

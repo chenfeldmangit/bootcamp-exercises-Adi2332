@@ -46,104 +46,131 @@
     </div>
     <div id="stream">
         <h1 id="stream-title">Home</h1>
-        <div id="post-stream">
-            <div id="write-post">
-                <div class="post-header">
-                    <img src="profile.png" class="button-icon profile-img" alt="profile image">
-                    <label>
-                        <textarea rows="5" cols="150"></textarea>
-                    </label>
-                </div>
-                <div class="post-actions">
-                    <div class="add-to-post">
-                        <button class="post-action">
-                            <object data="add_img.svg"></object>
-                        </button>
-                        <button class="post-action">
-                            <object data="smile.svg"></object>
-                        </button>
-                        <button class="post-action">
-                            <object data="location.svg"></object>
-                        </button>
-                    </div>
-                    <button class="menu-button tweet-button">
-                        <label class="button-label">Tweet</label>
-                    </button>
-                </div>
+        <div id="write-post">
+            <div class="post-header">
+                <img src="profile.png" class="button-icon profile-img" alt="profile image">
+                <label>
+                    <textarea rows="5" cols="150" id="write-post-text"></textarea>
+                </label>
             </div>
-
-            <div class="post">
-                <div class="post-header">
-                    <img src="profile.png" class="button-icon profile-img" alt="profile image">
-                    <p class="post-title">title</p>
-                </div>
-                <p class="post-text"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus accusantium amet autem cumque error eum ex, excepturi exercitationem labore laudantium minus, molestiae neque nesciunt, nisi officia perferendis quidem voluptate.</span><span>Accusamus aliquam aperiam consequatur delectus deserunt dolores, expedita fugiat hic illo illum incidunt ipsam magnam maiores minus molestias neque odio odit officia pariatur praesentium, quo reiciendis repellendus sunt tempora voluptate!</span><span>Adipisci autem dicta et eum expedita id inventore ipsum laudantium molestiae, nemo neque nostrum possimus quae qui reiciendis rerum vero. Ab adipisci alias cupiditate eum laborum non nostrum rerum tenetur!</span><span>Doloremque est eum labore voluptatem! Aperiam culpa deleniti dolores fuga fugit harum id inventore ipsam itaque labore laboriosam maiores, neque nihil non qui quidem reprehenderit soluta suscipit veniam voluptas! Accusantium.</span><span>Ab ad, adipisci aliquid at atque consectetur, distinctio dolores ea est facere facilis fuga illum in ipsum iusto libero maiores minus natus nesciunt praesentium reiciendis repellat repellendus similique, vitae voluptatibus.</span>
-                </p>
-                <img class="post-attachment" src="../img.jpg" alt="post-attachment">
-                <div class="action-on-post">
+            <div class="post-actions">
+                <div class="add-to-post">
                     <button class="post-action">
-                        <object data="like.svg"></object>
+                        <object data="add_img.svg"></object>
                     </button>
                     <button class="post-action">
-                        <object data="comment.svg"></object>
+                        <object data="smile.svg"></object>
                     </button>
                     <button class="post-action">
-                        <object data="share.svg"></object>
+                        <object data="location.svg"></object>
                     </button>
                 </div>
-            </div>
-
-            <div class="post">
-                <div class="post-header">
-                    <img src="profile.png" class="button-icon profile-img" alt="profile image">
-                    <p class="post-title">title</p>
-                </div>
-                <p class="post-text"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus accusantium amet autem cumque error eum ex, excepturi exercitationem labore laudantium minus, molestiae neque nesciunt, nisi officia perferendis quidem voluptate.</span><span>Accusamus aliquam aperiam consequatur delectus deserunt dolores, expedita fugiat hic illo illum incidunt ipsam magnam maiores minus molestias neque odio odit officia pariatur praesentium, quo reiciendis repellendus sunt tempora voluptate!</span><span>Adipisci autem dicta et eum expedita id inventore ipsum laudantium molestiae, nemo neque nostrum possimus quae qui reiciendis rerum vero. Ab adipisci alias cupiditate eum laborum non nostrum rerum tenetur!</span><span>Doloremque est eum labore voluptatem! Aperiam culpa deleniti dolores fuga fugit harum id inventore ipsam itaque labore laboriosam maiores, neque nihil non qui quidem reprehenderit soluta suscipit veniam voluptas! Accusantium.</span><span>Ab ad, adipisci aliquid at atque consectetur, distinctio dolores ea est facere facilis fuga illum in ipsum iusto libero maiores minus natus nesciunt praesentium reiciendis repellat repellendus similique, vitae voluptatibus.</span>
-                </p>
-                <div class="action-on-post">
-                    <button class="post-action">
-                        <object data="like.svg"></object>
-                    </button>
-                    <button class="post-action">
-                        <object data="comment.svg"></object>
-                    </button>
-                    <button class="post-action">
-                        <object data="share.svg"></object>
-                    </button>
-                </div>
-            </div>
-
-            <div class="post">
-                <div class="post-header">
-                    <img src="profile.png" class="button-icon profile-img" alt="profile image">
-                    <p class="post-title">title</p>
-                </div>
-                <p class="post-text"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus accusantium amet autem cumque error eum ex, excepturi exercitationem labore laudantium minus, molestiae neque nesciunt, nisi officia perferendis quidem voluptate.</span><span>Accusamus aliquam aperiam consequatur delectus deserunt dolores, expedita fugiat hic illo illum incidunt ipsam magnam maiores minus molestias neque odio odit officia pariatur praesentium, quo reiciendis repellendus sunt tempora voluptate!</span><span>Adipisci autem dicta et eum expedita id inventore ipsum laudantium molestiae, nemo neque nostrum possimus quae qui reiciendis rerum vero. Ab adipisci alias cupiditate eum laborum non nostrum rerum tenetur!</span><span>Doloremque est eum labore voluptatem! Aperiam culpa deleniti dolores fuga fugit harum id inventore ipsam itaque labore laboriosam maiores, neque nihil non qui quidem reprehenderit soluta suscipit veniam voluptas! Accusantium.</span><span>Ab ad, adipisci aliquid at atque consectetur, distinctio dolores ea est facere facilis fuga illum in ipsum iusto libero maiores minus natus nesciunt praesentium reiciendis repellat repellendus similique, vitae voluptatibus.</span>
-                </p>
-                <iframe class="post-attachment"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108214.01861253897!2d34.78650888089778!3d32.05063329203314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa9ff0b770a4e76f2!2z157XkteT15wg16HXpNeZ16g!5e0!3m2!1siw!2sil!4v1584732745868!5m2!1siw!2sil"
-                        width="600" height="450" style="border:0;" allowfullscreen=""
-                        aria-hidden="false" tabindex="0">
-                </iframe>
-                <div class="action-on-post">
-                    <button class="post-action">
-                        <object data="like.svg"></object>
-                    </button>
-                    <button class="post-action">
-                        <object data="comment.svg"></object>
-                    </button>
-                    <button class="post-action">
-                        <object data="share.svg"></object>
-                    </button>
-                </div>
+                <button class="menu-button tweet-button">
+                    <label class="button-label">Tweet</label>
+                </button>
             </div>
         </div>
 
+        <div class="post">
+            <div class="post-header">
+                <img src="profile.png" class="button-icon profile-img" alt="profile image">
+                <p class="post-title">title</p>
+            </div>
+            <p class="post-text"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus accusantium amet autem cumque error eum ex, excepturi exercitationem labore laudantium minus, molestiae neque nesciunt, nisi officia perferendis quidem voluptate.</span><span>Accusamus aliquam aperiam consequatur delectus deserunt dolores, expedita fugiat hic illo illum incidunt ipsam magnam maiores minus molestias neque odio odit officia pariatur praesentium, quo reiciendis repellendus sunt tempora voluptate!</span><span>Adipisci autem dicta et eum expedita id inventore ipsum laudantium molestiae, nemo neque nostrum possimus quae qui reiciendis rerum vero. Ab adipisci alias cupiditate eum laborum non nostrum rerum tenetur!</span><span>Doloremque est eum labore voluptatem! Aperiam culpa deleniti dolores fuga fugit harum id inventore ipsam itaque labore laboriosam maiores, neque nihil non qui quidem reprehenderit soluta suscipit veniam voluptas! Accusantium.</span><span>Ab ad, adipisci aliquid at atque consectetur, distinctio dolores ea est facere facilis fuga illum in ipsum iusto libero maiores minus natus nesciunt praesentium reiciendis repellat repellendus similique, vitae voluptatibus.</span>
+            </p>
+            <img class="post-attachment" src="../img.jpg" alt="post-attachment">
+            <div class="action-on-post">
+                <button class="post-action">
+                    <object data="like.svg"></object>
+                </button>
+                <button class="post-action">
+                    <object data="comment.svg"></object>
+                </button>
+                <button class="post-action">
+                    <object data="share.svg"></object>
+                </button>
+            </div>
+        </div>
+
+        <div class="post">
+            <div class="post-header">
+                <img src="profile.png" class="button-icon profile-img" alt="profile image">
+                <p class="post-title">title</p>
+            </div>
+            <p class="post-text"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus accusantium amet autem cumque error eum ex, excepturi exercitationem labore laudantium minus, molestiae neque nesciunt, nisi officia perferendis quidem voluptate.</span><span>Accusamus aliquam aperiam consequatur delectus deserunt dolores, expedita fugiat hic illo illum incidunt ipsam magnam maiores minus molestias neque odio odit officia pariatur praesentium, quo reiciendis repellendus sunt tempora voluptate!</span><span>Adipisci autem dicta et eum expedita id inventore ipsum laudantium molestiae, nemo neque nostrum possimus quae qui reiciendis rerum vero. Ab adipisci alias cupiditate eum laborum non nostrum rerum tenetur!</span><span>Doloremque est eum labore voluptatem! Aperiam culpa deleniti dolores fuga fugit harum id inventore ipsam itaque labore laboriosam maiores, neque nihil non qui quidem reprehenderit soluta suscipit veniam voluptas! Accusantium.</span><span>Ab ad, adipisci aliquid at atque consectetur, distinctio dolores ea est facere facilis fuga illum in ipsum iusto libero maiores minus natus nesciunt praesentium reiciendis repellat repellendus similique, vitae voluptatibus.</span>
+            </p>
+            <div class="action-on-post">
+                <button class="post-action">
+                    <object data="like.svg"></object>
+                </button>
+                <button class="post-action">
+                    <object data="comment.svg"></object>
+                </button>
+                <button class="post-action">
+                    <object data="share.svg"></object>
+                </button>
+            </div>
+        </div>
+
+        <div class="post">
+            <div class="post-header">
+                <img src="profile.png" class="button-icon profile-img" alt="profile image">
+                <p class="post-title">title</p>
+            </div>
+            <p class="post-text"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus accusantium amet autem cumque error eum ex, excepturi exercitationem labore laudantium minus, molestiae neque nesciunt, nisi officia perferendis quidem voluptate.</span><span>Accusamus aliquam aperiam consequatur delectus deserunt dolores, expedita fugiat hic illo illum incidunt ipsam magnam maiores minus molestias neque odio odit officia pariatur praesentium, quo reiciendis repellendus sunt tempora voluptate!</span><span>Adipisci autem dicta et eum expedita id inventore ipsum laudantium molestiae, nemo neque nostrum possimus quae qui reiciendis rerum vero. Ab adipisci alias cupiditate eum laborum non nostrum rerum tenetur!</span><span>Doloremque est eum labore voluptatem! Aperiam culpa deleniti dolores fuga fugit harum id inventore ipsam itaque labore laboriosam maiores, neque nihil non qui quidem reprehenderit soluta suscipit veniam voluptas! Accusantium.</span><span>Ab ad, adipisci aliquid at atque consectetur, distinctio dolores ea est facere facilis fuga illum in ipsum iusto libero maiores minus natus nesciunt praesentium reiciendis repellat repellendus similique, vitae voluptatibus.</span>
+            </p>
+            <iframe class="post-attachment"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108214.01861253897!2d34.78650888089778!3d32.05063329203314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa9ff0b770a4e76f2!2z157XkteT15wg16HXpNeZ16g!5e0!3m2!1siw!2sil!4v1584732745868!5m2!1siw!2sil"
+                    width="600" height="450" style="border:0;" allowfullscreen=""
+                    aria-hidden="false" tabindex="0">
+            </iframe>
+            <div class="action-on-post">
+                <button class="post-action">
+                    <object data="like.svg"></object>
+                </button>
+                <button class="post-action">
+                    <object data="comment.svg"></object>
+                </button>
+                <button class="post-action">
+                    <object data="share.svg"></object>
+                </button>
+            </div>
+        </div>
     </div>
     <div id="follow">
         <div id="search">
             <object data="search.svg" id="search-icon"></object>
-            <input type="search" id="search-input" value="Search Twitter">
+            <input type="search" id="search-input" placeholder="Search Twitter">
+        </div>
+        <div id="follow-suggestions">
+            <h2 id="follow-suggestions-title">You might like</h2>
+            <div class="follow-suggestion">
+                <div class="follow-suggestion-header">
+                    <img src="profile.png" class="button-icon profile-img" alt="profile image">
+                    <p class="post-title">Name</p>
+                </div>
+                <button class="follow-button">
+                    <label class="button-label">follow</label>
+                </button>
+            </div>
+            <div class="follow-suggestion">
+                <div class="follow-suggestion-header">
+                    <img src="profile.png" class="button-icon profile-img" alt="profile image">
+                    <p class="post-title">Name</p>
+                </div>
+                <button class="follow-button">
+                    <label class="button-label">follow</label>
+                </button>
+            </div>
+            <div class="follow-suggestion">
+                <div class="follow-suggestion-header">
+                    <img src="profile.png" class="button-icon profile-img" alt="profile image">
+                    <p class="post-title">Name</p>
+                </div>
+                <button class="follow-button">
+                    <label class="button-label">follow</label>
+                </button>
+            </div>
         </div>
     </div>
 </body>
