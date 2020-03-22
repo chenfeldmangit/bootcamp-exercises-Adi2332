@@ -70,6 +70,28 @@
     justify-content: center;
 }
 
+#search{
+    display: flex;
+    align-items: center;
+    background: #f5dbff;
+    border-radius: 3em;
+    border: none;
+    height: 2.5em;
+}
+
+#search-input{
+    background: none;
+    border: none;
+    position: relative;
+    left: 5em;
+    height: 2.5em;
+}
+
+#search-icon{
+    position: absolute;
+    margin-left: 1em;
+}
+
 .profile-img {
     width: 3em;
     height: 3em;
