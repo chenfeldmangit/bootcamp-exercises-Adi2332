@@ -37,9 +37,9 @@
   flex-direction: row;
   justify-content: flex-start;
   height: 3em;
-  width: 15em;
+  width: 70%;
   align-items: center;
-  margin: 0.5em;
+  margin: 1%;
   border-radius: 3em;
   background: none;
   border: none;
@@ -50,11 +50,11 @@
 
 .button-label {
   font-family: "Comic Sans MS", serif;
-  font-size: 1.5em;
+  font-size: 90%;
 }
 
 .button-icon {
-  margin: 0 1em 0 2em;
+  margin: 0 2% 0 10%;
 }
 
 .icon-color {
@@ -170,6 +170,9 @@
   display: flex;
   flex-direction: column;
   margin-top: 1em;
+}
+#write-post .tweet-button {
+  width: 20%;
 }
 
 .post-actions {
