@@ -5,6 +5,7 @@
     <title>Twitter</title>
     <link rel="icon" href="resources/bird.svg">
     <link rel="stylesheet" href="Style/css/style.css">
+    <script src="JS/script.js"></script>
 <body class="container">
     <div id="menu">
         <object data="resources/bird.svg" class="menu-icon"></object>
@@ -32,7 +33,7 @@
             <object data="resources/list.svg" class="button-icon"></object>
             <label class="button-label">Lists</label>
         </button>
-        <button class="menu-button">
+        <button class="menu-button" onclick="loadProfile()">
             <img src="resources/profile.png" class="button-icon profile-img" alt="profile image">
             <label class="button-label">Profile</label>
         </button>
@@ -173,5 +174,12 @@
             </div>
         </div>
     </div>
+
+    <template id="profile-template">
+        <div id="profile">
+            <h1 class="profile-title"></h1>
+            <button onclick="loadStream()">back</button>
+        </div>
+    </template>
 </body>
 </html>

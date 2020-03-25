@@ -43,7 +43,7 @@ button {
     height: 2em;
 }
 
-.bird{
+.bird {
     margin: 1em;
 }
 
@@ -70,13 +70,13 @@ button {
 }
 
 .post-text,
-.post-title{
+.post-title {
     max-width: 80%;
     position: relative;
     left: 6em;
     top: -5em;
 }
 
-.post-title{
+.post-title {
     font-weight: bold;
 }
