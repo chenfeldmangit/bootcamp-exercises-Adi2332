@@ -105,17 +105,14 @@
   align-items: center;
   height: 2.5em;
 }
+#follow #search #search-icon {
+  margin-left: 1em;
+}
 #follow #search #search-input {
   background: none;
   border: none;
-  position: relative;
-  left: 5em;
   height: 2.5em;
-  width: 75%;
-}
-#follow #search #search-icon {
-  position: absolute;
-  margin-left: 1em;
+  width: 80%;
 }
 #follow #follow-suggestions {
   background: #f7ecff;

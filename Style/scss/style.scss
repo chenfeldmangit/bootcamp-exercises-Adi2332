@@ -121,19 +121,17 @@ $follow-color: #f7ecff;
     align-items: center;
     height: 2.5em;
 
+    #search-icon {
+      margin-left: 1em;
+    }
+
     #search-input {
       background: none;
       border: none;
-      position: relative;
-      left: 5em;
       height: 2.5em;
-      width: 75%;
+      width: 80%;
     }
 
-    #search-icon {
-      position: absolute;
-      margin-left: 1em;
-    }
   }
 
   #follow-suggestions {
