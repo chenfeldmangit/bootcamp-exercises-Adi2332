@@ -1,471 +1,542 @@
 .icon-color {
-  fill: #800080;
+    fill: #800080;
 }
 
 body {
-  display: flex;
-  font-size: 15px;
-  font-family: "Comic Sans MS", serif;
-  align-items: flex-start;
+    display: flex;
+    font-size: 15px;
+    font-family: "Comic Sans MS", serif;
+    align-items: flex-start;
 }
+
 body .dialog {
-  z-index: 2;
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 #stream {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 4;
-  width: 2em;
-  border-left: 1px solid #e6ecf0;
-  border-right: 1px solid #e6ecf0;
-  margin: 0 1em 1em;
-  position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 4;
+    width: 2em;
+    border-left: 1px solid #e6ecf0;
+    border-right: 1px solid #e6ecf0;
+    margin: 0 1em 1em;
+    position: relative;
 }
+
 #stream #stream-title {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  color: #800080;
-  z-index: 1;
-  background: white;
-  border-bottom: 1px solid #e6ecf0;
-  margin: 0;
-  padding-bottom: 1em;
-  padding-top: 0.5em;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    color: #800080;
+    z-index: 1;
+    background: white;
+    border-bottom: 1px solid #e6ecf0;
+    margin: 0;
+    padding-bottom: 1em;
+    padding-top: 0.5em;
 }
+
 #stream #write-post {
-  display: flex;
-  flex-direction: column;
-  margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
 }
+
 #stream #write-post .post-header {
-  padding: 1em 0 0 0;
-  display: flex;
+    padding: 1em 0 0 0;
+    display: flex;
 }
+
 #stream #write-post .post-header .profile-img {
-  width: 3em;
-  height: 100%;
-  border-radius: 50%;
-  margin: 0 2% 0 1%;
+    width: 3em;
+    height: 100%;
+    border-radius: 50%;
+    margin: 0 2% 0 1%;
 }
+
 #stream #write-post .post-title {
-  font-weight: bold;
+    font-weight: bold;
 }
+
 #stream #write-post #write-post-text {
-  width: 98%;
+    width: 98%;
 }
+
 #stream #write-post .post-actions {
-  display: flex;
-  justify-content: space-between;
-  margin-left: 5em;
-  margin-right: 4em;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5em;
+    margin-right: 4em;
 }
+
 #stream #write-post .post-actions .post-action {
-  border: none;
-  background: none;
-  width: 3em;
-  height: 3em;
-  align-items: flex-start;
-  border-radius: 2em;
+    border: none;
+    background: none;
+    width: 3em;
+    height: 3em;
+    align-items: flex-start;
+    border-radius: 2em;
 }
+
 #stream #write-post .post-actions .post-action:hover {
-  background: #e9bfff;
-  justify-content: center;
+    background: #e9bfff;
+    justify-content: center;
 }
+
 #stream #write-post .tweet-button {
-  background: #e9bfff;
-  border-radius: 3em;
-  border: none;
-  width: 15%;
-  height: 3em;
+    background: #e9bfff;
+    border-radius: 3em;
+    border: none;
+    width: 15%;
+    height: 3em;
 }
+
 #stream .post {
-  display: flex;
-  flex-direction: column;
-  width: border-box;
-  border: 1px solid #e6ecf0;
+    display: flex;
+    flex-direction: column;
+    width: border-box;
+    border: 1px solid #e6ecf0;
 }
+
 #stream .post:hover {
-  background: #f3f3f3;
+    background: #f3f3f3;
 }
+
 #stream .post .post-header {
-  padding: 1em 0 0 0;
-  display: flex;
+    padding: 1em 0 0 0;
+    display: flex;
 }
+
 #stream .post .post-header .profile-img {
-  width: 3em;
-  height: 100%;
-  border-radius: 50%;
-  margin: 0 2% 0 1%;
+    width: 3em;
+    height: 100%;
+    border-radius: 50%;
+    margin: 0 2% 0 1%;
 }
+
 #stream .post .post-title {
-  font-weight: bold;
+    font-weight: bold;
 }
+
 #stream .post .post-text {
-  margin-right: 2em;
-  margin-left: 5em;
-  width: border-box;
+    margin-right: 2em;
+    margin-left: 5em;
+    width: border-box;
 }
+
 #stream .post .post-attachment {
-  max-width: 50%;
-  max-height: 10%;
-  width: 80%;
-  align-self: flex-end;
-  border-radius: 2em;
-  margin-right: 5em;
-  margin-bottom: 1em;
+    max-width: 50%;
+    max-height: 10%;
+    width: 80%;
+    align-self: flex-end;
+    border-radius: 2em;
+    margin-right: 5em;
+    margin-bottom: 1em;
 }
+
 #stream .post .post-actions {
-  display: flex;
-  justify-content: flex-start;
-  margin-left: 5em;
-  margin-right: 4em;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 5em;
+    margin-right: 4em;
 }
+
 #stream .post .post-actions .post-action {
-  border: none;
-  background: none;
-  width: 3em;
-  height: 3em;
-  align-items: flex-start;
-  border-radius: 2em;
+    border: none;
+    background: none;
+    width: 3em;
+    height: 3em;
+    align-items: flex-start;
+    border-radius: 2em;
 }
+
 #stream .post .post-actions .post-action:hover {
-  background: #e9bfff;
-  justify-content: center;
+    background: #e9bfff;
+    justify-content: center;
 }
 
 #menu {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  width: 1em;
-  margin: 0 1em 1em;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 1em;
+    margin: 0 1em 1em;
 }
+
 #menu .menu-button {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  height: 3em;
-  width: 70%;
-  align-items: center;
-  margin: 1%;
-  border-radius: 3em;
-  background: none;
-  border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 3em;
+    width: 70%;
+    align-items: center;
+    margin: 1%;
+    border-radius: 3em;
+    background: none;
+    border: none;
 }
+
 #menu .menu-button:hover {
-  background: #e9bfff;
+    background: #e9bfff;
 }
+
 #menu .menu-button .button-label {
-  font-family: "Comic Sans MS", serif;
-  font-size: 90%;
+    font-family: "Comic Sans MS", serif;
+    font-size: 90%;
 }
+
 #menu .menu-button .button-icon {
-  margin: 0 2% 0 10%;
+    margin: 0 2% 0 10%;
 }
+
 #menu .menu-button .profile-img {
-  width: 3em;
-  height: 100%;
-  border-radius: 50%;
-  margin: 0 2% 0 3%;
+    width: 3em;
+    height: 100%;
+    border-radius: 50%;
+    margin: 0 2% 0 3%;
 }
+
 #menu .menu-icon {
-  width: 2.5em;
-  height: 2.5em;
-  margin: 0 0 0 1em;
-  align-self: flex-start;
+    width: 2.5em;
+    height: 2.5em;
+    margin: 0 0 0 1em;
+    align-self: flex-start;
 }
+
 #menu .tweet-button {
-  background: #e9bfff;
-  justify-content: center;
+    background: #e9bfff;
+    justify-content: center;
 }
 
 #follow {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  width: 1em;
-  margin: 0 1em 1em;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 1em;
+    margin: 0 1em 1em;
 }
+
 #follow #search {
-  background: #f7ecff;
-  border-radius: 2em;
-  border: none;
-  display: flex;
-  align-items: center;
-  height: 2.5em;
+    background: #f7ecff;
+    border-radius: 2em;
+    border: none;
+    display: flex;
+    align-items: center;
+    height: 2.5em;
 }
+
 #follow #search #search-icon {
-  margin-left: 1em;
+    margin-left: 1em;
 }
+
 #follow #search #search-input {
-  background: none;
-  border: none;
-  height: 2.5em;
-  width: 80%;
+    background: none;
+    border: none;
+    height: 2.5em;
+    width: 80%;
 }
+
 #follow #follow-suggestions {
-  background: #f7ecff;
-  border-radius: 2em;
-  border: none;
-  margin-top: 1em;
+    background: #f7ecff;
+    border-radius: 2em;
+    border: none;
+    margin-top: 1em;
 }
+
 #follow #follow-suggestions #follow-suggestions-title {
-  padding: 1em;
-  border-bottom: 2px solid #e6ecf0;
-  margin-top: 0;
-  margin-bottom: 0;
+    padding: 1em;
+    border-bottom: 2px solid #e6ecf0;
+    margin-top: 0;
+    margin-bottom: 0;
 }
+
 #follow #follow-suggestions .follow-suggestion {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    left: 0;
 }
+
 #follow #follow-suggestions .follow-suggestion .follow-suggestion-header {
-  padding: 1em 0 0 0;
-  display: flex;
+    padding: 1em 0 0 0;
+    display: flex;
 }
+
 #follow #follow-suggestions .follow-suggestion .follow-suggestion-header .profile-img {
-  width: 3em;
-  height: 100%;
-  border-radius: 50%;
-  margin: 0 10% 0 10%;
+    width: 3em;
+    height: 100%;
+    border-radius: 50%;
+    margin: 0 10% 0 10%;
 }
+
 #follow #follow-suggestions .follow-suggestion .follow-button {
-  height: 80%;
-  border-radius: 2em;
-  margin-right: 1em;
-  width: 35%;
-  background: none;
-  border: 3px solid #e6ecf0;
+    height: 80%;
+    border-radius: 2em;
+    margin-right: 1em;
+    width: 35%;
+    background: none;
+    border: 3px solid #e6ecf0;
 }
 
 #profile-page {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 4;
-  width: 2em;
-  border-left: 1px solid #e6ecf0;
-  border-right: 1px solid #e6ecf0;
-  margin: 0 1em 1em;
-  position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 4;
+    width: 2em;
+    border-left: 1px solid #e6ecf0;
+    border-right: 1px solid #e6ecf0;
+    margin: 0 1em 1em;
+    position: relative;
 }
+
 #profile-page .profile-header {
-  display: flex;
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 1;
-  background: white;
-  border-bottom: 1px solid #e6ecf0;
-  margin: 0;
-  align-items: center;
+    display: flex;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    background: white;
+    border-bottom: 1px solid #e6ecf0;
+    margin: 0;
+    align-items: center;
 }
+
 #profile-page .profile-header .button {
-  height: 10%;
-  width: 5%;
-  padding: 1%;
-  border-radius: 3em;
-  background: none;
-  border: none;
+    height: 10%;
+    width: 5%;
+    padding: 1%;
+    border-radius: 3em;
+    background: none;
+    border: none;
 }
+
 #profile-page .profile-header .button > * {
-  pointer-events: none;
+    pointer-events: none;
 }
+
 #profile-page .profile-header .button:hover {
-  background: #e9bfff;
-  justify-content: center;
+    background: #e9bfff;
+    justify-content: center;
 }
+
 #profile-page .profile-header #profile-title {
-  color: #800080;
-  margin: 0;
+    color: #800080;
+    margin: 0;
 }
+
 #profile-page .profile-header #tweet-number {
-  margin: 0;
+    margin: 0;
 }
+
 #profile-page #profile {
-  border-bottom: 1px solid #e6ecf0;
+    border-bottom: 1px solid #e6ecf0;
 }
+
 #profile-page #profile .profile-header {
-  height: 20em;
+    height: 20em;
 }
+
 #profile-page #profile .profile-header .background-img {
-  width: 100%;
-  height: 70%;
-  position: absolute;
-  top: 0;
-  margin: 0;
+    width: 100%;
+    height: 70%;
+    position: absolute;
+    top: 0;
+    margin: 0;
 }
+
 #profile-page #profile .profile-header .profile-img {
-  width: 10em;
-  height: 10em;
-  border-radius: 50%;
-  border: 5px white solid;
-  background: none;
-  position: absolute;
-  top: 45%;
-  left: 5%;
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    border: 5px white solid;
+    background: none;
+    position: absolute;
+    top: 45%;
+    left: 5%;
 }
+
 #profile-page #profile .profile-header .edit-button {
-  border-radius: 3em;
-  background: none;
-  border: 5px solid #e9bfff;
-  position: absolute;
-  bottom: 10%;
-  right: 5%;
+    border-radius: 3em;
+    background: none;
+    border: 5px solid #e9bfff;
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
 }
+
 #profile-page #profile .profile-header .edit-button .button-label {
-  font-family: "Comic Sans MS", serif;
-  font-size: 1.5em;
+    font-family: "Comic Sans MS", serif;
+    font-size: 1.5em;
 }
+
 #profile-page #profile #profile-name {
-  margin-left: 2em;
-  color: #800080;
+    margin-left: 2em;
+    color: #800080;
 }
+
 #profile-page #profile #bio {
-  margin-right: 5em;
-  margin-left: 2em;
-  width: border-box;
+    margin-right: 5em;
+    margin-left: 2em;
+    width: border-box;
 }
+
 #profile-page #profile #metadata {
-  display: flex;
+    display: flex;
 }
+
 #profile-page #profile #metadata .metadata {
-  margin-left: 2%;
+    margin-left: 2%;
 }
+
 #profile-page #profile #follow-metadata {
-  display: flex;
-  margin: 1%;
+    display: flex;
+    margin: 1%;
 }
+
 #profile-page #profile #follow-metadata .metadata {
-  margin-left: 2%;
+    margin-left: 2%;
 }
 
 #edit-profile-dialog {
-  position: absolute;
-  top: 10%;
-  width: 50%;
-  border: 2px solid #e6ecf0;
-  border-radius: 2em;
+    position: absolute;
+    top: 10%;
+    width: 50%;
+    border: 2px solid #e6ecf0;
+    border-radius: 2em;
 }
+
 #edit-profile-dialog .header {
-  display: flex;
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 1;
-  background: white;
-  border-bottom: 1px solid #e6ecf0;
-  margin: 0;
-  align-items: center;
+    display: flex;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    background: white;
+    border-bottom: 1px solid #e6ecf0;
+    margin: 0;
+    align-items: center;
 }
+
 #edit-profile-dialog .header .button {
-  height: 10%;
-  width: 5%;
-  padding: 1%;
-  border-radius: 3em;
-  background: none;
-  border: none;
+    height: 10%;
+    width: 5%;
+    padding: 1%;
+    border-radius: 3em;
+    background: none;
+    border: none;
 }
+
 #edit-profile-dialog .header .button > * {
-  pointer-events: none;
+    pointer-events: none;
 }
+
 #edit-profile-dialog .header .button:hover {
-  background: #e9bfff;
-  justify-content: center;
+    background: #e9bfff;
+    justify-content: center;
 }
+
 #edit-profile-dialog .header .save-button {
-  border: 5px solid #e9bfff;
-  position: absolute;
-  border-radius: 3em;
-  background: none;
-  right: 5%;
+    border: 5px solid #e9bfff;
+    position: absolute;
+    border-radius: 3em;
+    background: none;
+    right: 5%;
 }
+
 #edit-profile-dialog .header .save-button .button-label {
-  font-family: "Comic Sans MS", serif;
-  font-size: 1.5em;
+    font-family: "Comic Sans MS", serif;
+    font-size: 1.5em;
 }
+
 #edit-profile-dialog #edit-profile-form .edit-img {
-  position: relative;
-  height: 15em;
+    position: relative;
+    height: 15em;
 }
+
 #edit-profile-dialog #edit-profile-form .edit-img .background-img {
-  width: 100%;
-  height: 70%;
-  position: relative;
-  top: 0;
-  margin: 0;
+    width: 100%;
+    height: 70%;
+    position: relative;
+    top: 0;
+    margin: 0;
 }
+
 #edit-profile-dialog #edit-profile-form .edit-img #edit-background-img-warp {
-  width: 100%;
-  height: 70%;
-  position: absolute;
-  top: 0;
-  margin: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 100%;
+    height: 70%;
+    position: absolute;
+    top: 0;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 #edit-profile-dialog #edit-profile-form .edit-img .profile-img {
-  width: 10em;
-  height: 10em;
-  border-radius: 50%;
-  border: 5px white solid;
-  background: none;
-  position: absolute;
-  top: 30%;
-  left: 5%;
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    border: 5px white solid;
+    background: none;
+    position: absolute;
+    top: 30%;
+    left: 5%;
 }
+
 #edit-profile-dialog #edit-profile-form .edit-img #edit-profile-img-warp {
-  width: 10em;
-  height: 10em;
-  border-radius: 50%;
-  position: absolute;
-  border: 5px white solid;
-  top: 30%;
-  left: 5%;
-  background-color: rgba(0, 0, 0, 0.4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    position: absolute;
+    border: 5px white solid;
+    top: 30%;
+    left: 5%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 #edit-profile-dialog #edit-profile-form .edit-img .edit-img {
-  width: 3em;
-  height: 3em;
+    width: 3em;
+    height: 3em;
 }
+
 #edit-profile-dialog #edit-profile-form .input {
-  background-color: #f7ecff;
-  margin-bottom: 1%;
+    background-color: #f7ecff;
+    margin-bottom: 1%;
 }
+
 #edit-profile-dialog #edit-profile-form .input label {
-  margin-left: 1%;
-  font-weight: bold;
+    margin-left: 1%;
+    font-weight: bold;
 }
+
 #edit-profile-dialog #edit-profile-form .input input {
-  width: 95%;
-  margin-left: 2.5%;
-  margin-right: 2.5%;
-  border: none;
-  border-bottom: 3px solid #800080;
-  background: none;
-  overflow-wrap: break-word;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    border: none;
+    border-bottom: 3px solid #800080;
+    background: none;
+    overflow-wrap: break-word;
 }
+
 #edit-profile-dialog #edit-profile-form .input .size {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 2%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 2%;
 }
 
 /*# sourceMappingURL=style.css.map */
