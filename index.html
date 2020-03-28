@@ -6,7 +6,7 @@
     <link rel="icon" href="resources/bird.svg">
     <link rel="stylesheet" href="Style/css/style.css">
     <script src="JS/script.js"></script>
-<body class="container">
+<body>
     <div id="menu">
         <object data="resources/bird.svg" class="menu-icon"></object>
         <button class="menu-button">
@@ -33,7 +33,7 @@
             <object data="resources/list.svg" class="button-icon"></object>
             <label class="button-label">Lists</label>
         </button>
-        <button class="menu-button" onclick="loadProfile()">
+        <button class="menu-button" onclick="loadProfilePage()">
             <img src="resources/profile.png" class="button-icon profile-img" alt="profile image">
             <label class="button-label">Profile</label>
         </button>
@@ -63,10 +63,10 @@
                         <object data="resources/smile.svg"></object>
                     </button>
                     <button class="post-action">
-                        <object data="resources/location.svg"></object>
+                        <object data="resources/addLocation.svg"></object>
                     </button>
                 </div>
-                <button class="menu-button tweet-button">
+                <button class="tweet-button">
                     <label class="button-label">Tweet</label>
                 </button>
             </div>
@@ -80,7 +80,7 @@
             <p class="post-text"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus accusantium amet autem cumque error eum ex, excepturi exercitationem labore laudantium minus, molestiae neque nesciunt, nisi officia perferendis quidem voluptate.</span><span>Accusamus aliquam aperiam consequatur delectus deserunt dolores, expedita fugiat hic illo illum incidunt ipsam magnam maiores minus molestias neque odio odit officia pariatur praesentium, quo reiciendis repellendus sunt tempora voluptate!</span><span>Adipisci autem dicta et eum expedita id inventore ipsum laudantium molestiae, nemo neque nostrum possimus quae qui reiciendis rerum vero. Ab adipisci alias cupiditate eum laborum non nostrum rerum tenetur!</span><span>Doloremque est eum labore voluptatem! Aperiam culpa deleniti dolores fuga fugit harum id inventore ipsam itaque labore laboriosam maiores, neque nihil non qui quidem reprehenderit soluta suscipit veniam voluptas! Accusantium.</span><span>Ab ad, adipisci aliquid at atque consectetur, distinctio dolores ea est facere facilis fuga illum in ipsum iusto libero maiores minus natus nesciunt praesentium reiciendis repellat repellendus similique, vitae voluptatibus.</span>
             </p>
             <img class="post-attachment" src="resources/img.jpg" alt="post-attachment">
-            <div class="action-on-post">
+            <div class="post-actions">
                 <button class="post-action">
                     <object data="resources/like.svg"></object>
                 </button>
@@ -100,7 +100,7 @@
             </div>
             <p class="post-text"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus accusantium amet autem cumque error eum ex, excepturi exercitationem labore laudantium minus, molestiae neque nesciunt, nisi officia perferendis quidem voluptate.</span><span>Accusamus aliquam aperiam consequatur delectus deserunt dolores, expedita fugiat hic illo illum incidunt ipsam magnam maiores minus molestias neque odio odit officia pariatur praesentium, quo reiciendis repellendus sunt tempora voluptate!</span><span>Adipisci autem dicta et eum expedita id inventore ipsum laudantium molestiae, nemo neque nostrum possimus quae qui reiciendis rerum vero. Ab adipisci alias cupiditate eum laborum non nostrum rerum tenetur!</span><span>Doloremque est eum labore voluptatem! Aperiam culpa deleniti dolores fuga fugit harum id inventore ipsam itaque labore laboriosam maiores, neque nihil non qui quidem reprehenderit soluta suscipit veniam voluptas! Accusantium.</span><span>Ab ad, adipisci aliquid at atque consectetur, distinctio dolores ea est facere facilis fuga illum in ipsum iusto libero maiores minus natus nesciunt praesentium reiciendis repellat repellendus similique, vitae voluptatibus.</span>
             </p>
-            <div class="action-on-post">
+            <div class="post-actions">
                 <button class="post-action">
                     <object data="resources/like.svg"></object>
                 </button>
@@ -122,10 +122,9 @@
             </p>
             <iframe class="post-attachment"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108214.01861253897!2d34.78650888089778!3d32.05063329203314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa9ff0b770a4e76f2!2z157XkteT15wg16HXpNeZ16g!5e0!3m2!1siw!2sil!4v1584732745868!5m2!1siw!2sil"
-                    width="600" height="450" style="border:0;" allowfullscreen=""
-                    aria-hidden="false" tabindex="0">
+                    width="600" height="450" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
             </iframe>
-            <div class="action-on-post">
+            <div class="post-actions">
                 <button class="post-action">
                     <object data="resources/like.svg"></object>
                 </button>
@@ -140,7 +139,9 @@
     </div>
     <div id="follow">
         <div id="search">
-            <label for="search-input"><object data="resources/search.svg" id="search-icon"></object></label>
+            <label for="search-input">
+                <object data="resources/search.svg" id="search-icon"></object>
+            </label>
             <input type="search" id="search-input" placeholder="Search Twitter">
         </div>
         <div id="follow-suggestions">
@@ -176,10 +177,89 @@
     </div>
 
     <template id="profile-template">
-        <div id="profile">
-            <h1 class="profile-title"></h1>
-            <button onclick="loadStream()">back</button>
+        <div id="profile-page">
+            <div class="profile-header">
+                <button class="button" onclick="loadStream()">
+                    <object data="resources/left-arrow.svg" class="button-icon"></object>
+                </button>
+                <div>
+                    <h1 id="profile-title"></h1>
+                    <p id="tweet-number"></p>
+                </div>
+            </div>
+            <div id="profile">
+                <div class="profile-header">
+                    <img src="resources/yoyogi.jpg" class="background-img" alt="background-img">
+                    <img src="resources/profile.png" class="profile-img" alt="profile image">
+                    <button class="edit-button" onclick="editProfile()">
+                        <label class="button-label">Edit Profile</label>
+                    </button>
+                </div>
+                <h3 id="profile-name"></h3>
+                <p id="bio"></p>
+                <div id="metadata">
+                    <div class="metadata">
+                        <object data="resources/location.svg"></object>
+                        <label id="location"></label>
+                    </div>
+
+                    <div class="metadata">
+                        <object data="resources/joinOn.svg"></object>
+                        <label id="join-on"></label>
+                    </div>
+                </div>
+                <div id="follow-metadata">
+                    <label class="metadata"><strong id="following"></strong> Following</label>
+                    <label class="metadata"><strong id="followers"></strong> Followers</label>
+                </div>
+            </div>
         </div>
     </template>
+
+    <div class="dialog">
+        <dialog id="edit-profile-dialog">
+            <div class="header">
+                <button class="button" onclick="closeEditProfile()">
+                    <object data="resources/close.svg" class="button-icon"></object>
+                </button>
+                <h3>Edit Profile</h3>
+                <button class="save-button">
+                    <label class="button-label" onclick="saveProfile()">Save</label>
+                </button>
+            </div>
+            <form id="edit-profile-form" method="post" onsubmit="preventRefresh()">
+                <div class="edit-img">
+                    <img src="resources/yoyogi.jpg" class="background-img" alt="background-img">
+                    <div id="edit-background-img-warp">
+                        <object data="resources/addPhoto.svg" class="edit-img"></object>
+                    </div>
+
+                    <img src="resources/profile.png" class="profile-img" alt="profile image">
+                    <div id="edit-profile-img-warp">
+                    <object data="resources/addPhoto.svg" class="edit-img"></object>
+                    </div>
+                </div>
+
+                <div class="input">
+                    <label for="name-input">Name</label>
+                    <input type="text" id="name-input" maxlength="5" oninput="validateLength(id)">
+                    <label id="name-input-length" class="size"></label>
+                </div>
+
+                <div class="input">
+                    <label for="bio-input">Bio</label>
+                    <input type="text" id="bio-input" maxlength="250" oninput="validateLength(id)">
+                    <label id="bio-input-length" class="size"></label>
+                </div>
+
+                <div class="input">
+                    <label for="location-input">Location</label>
+                    <input type="text" id="location-input" maxlength="50" oninput="validateLength(id)">
+                    <label id="location-input-length" class="size"></label>
+                </div>
+            </form>
+        </dialog>
+    </div>
+
 </body>
 </html>
