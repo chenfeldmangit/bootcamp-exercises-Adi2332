@@ -162,7 +162,6 @@ function addTweet() {
     const tweets = getFromLocalStorage("tweets", TweetList);
     tweets.addTweet(new Tweet(newTweet));
     setToLocalStorage("tweets", tweets);
-    addPost();
 }
 
 function addPost() {
