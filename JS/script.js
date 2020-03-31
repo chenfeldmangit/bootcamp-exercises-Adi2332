@@ -173,3 +173,7 @@ function likeOrUnlikePost(event) {
     tweet.like ? event.target.classList.add("liked") : event.target.classList.remove("liked");
     localStorage.setItem("tweets", JSON.stringify(tweets));
 }
+
+function deletePost() {
+    console.log("deletePost");
+}
