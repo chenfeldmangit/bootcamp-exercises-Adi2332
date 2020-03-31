@@ -13,7 +13,7 @@ class Profile {
 class Tweet {
     constructor(text, like = false) {
         this.id = getNewTweetId();
-        this.text = text.replace(/\r?\n/g, '<br />');;
+        this.text = text.replace(/\r?\n/g, '<br />');
         this.like = like;
     }
 }
