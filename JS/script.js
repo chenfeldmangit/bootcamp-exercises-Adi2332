@@ -28,11 +28,12 @@ class Tweet {
 }
 
 class TweetList {
-    constructor(json) {
-        if (json === undefined)
-            this.list = [];
-        else
-            this.list = json.list.map(tweet => Tweet.fromJson(tweet));
+    constructor(list) {
+        this.list = list;
+    }
+
+    static fromJson(json) {
+        return new TweetList(json.list.map(tweet => Tweet.fromJson(tweet)));
     }
 
     addTweet(tweet) {
@@ -42,6 +43,18 @@ class TweetList {
     getTweetById(id) {
         return this.list.filter(tweet => tweet.id === parseInt(id))[0];
     }
+
+    removeTweetById(id) {
+        this.list = this.list.filter(tweet => tweet.id !== parseInt(id));
+    }
+}
+
+function getFromLocalStorage(key, _class) {
+    return _class.fromJson(JSON.parse(localStorage.getItem(key)));
+}
+
+function setToLocalStorage(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
 }
 
 function getNewTweetId() {
@@ -51,12 +64,12 @@ function getNewTweetId() {
 }
 
 function load() {
-    localStorage.setItem("tweets", JSON.stringify(new TweetList()));
-    localStorage.setItem("nextTweetId", Number(4).toString());
-    localStorage.setItem("profile", JSON.stringify(new Profile("Adi", 3, "Tel Aviv", "March 2020",
+    setToLocalStorage("tweets", new TweetList([]));
+    setToLocalStorage("nextTweetId", Number(4));
+    setToLocalStorage("profile", new Profile("Adi", 3, "Tel Aviv", "March 2020",
         152, 2548, "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid, " +
         "asperiores assumenda beatae cupiditate dolorem, ea esse fugiat iure mollitia odio odit pariatur perspiciatis " +
-        "possimus qui repellendus sapiente sunt velit.")));
+        "possimus qui repellendus sapiente sunt velit."));
     setInterval(addPost, 2000);
 }
 
@@ -75,7 +88,7 @@ function loadProfilePage() {
     removeProfilePage();
     const profileTemplate = getTemplate("profile-template");
     document.body.insertBefore(profileTemplate, document.getElementById("follow"));
-    let profile = Profile.fromJson(JSON.parse(localStorage.getItem("profile")));
+    let profile = getFromLocalStorage("profile", Profile);
     document.getElementById("profile-title").innerHTML = profile.name;
     document.getElementById("profile-name").innerHTML = profile.name;
     document.getElementById("tweet-number").innerHTML = profile.tweetsNumber + " Tweets";
@@ -112,7 +125,7 @@ function editProfile() {
     openDialogById("edit-profile-dialog");
     const inputs = document.getElementById("edit-profile-form").getElementsByTagName("input");
 
-    let profile = Profile.fromJson(JSON.parse(localStorage.getItem("profile")));
+    let profile = getFromLocalStorage("profile", Profile);
     document.getElementById("name-input").value = profile.name;
     document.getElementById("bio-input").value = profile.bio;
     document.getElementById("location-input").value = profile.location;
@@ -135,25 +148,25 @@ function preventRefresh() {
 }
 
 function saveProfile() {
-    let profile = Profile.fromJson(JSON.parse(localStorage.getItem("profile")));
+    let profile = getFromLocalStorage("profile", Profile);
     profile.name = document.getElementById("name-input").value;
     profile.bio = document.getElementById("bio-input").value;
     profile.location = document.getElementById("location-input").value;
-    localStorage.setItem("profile", JSON.stringify(profile));
+    setToLocalStorage("profile", profile);
     closeEditProfile();
     loadProfilePage();
 }
 
 function addTweet() {
     const newTweet = document.getElementById("write-post-text").value;
-    const tweets = new TweetList(JSON.parse(localStorage.getItem("tweets")));
+    const tweets = getFromLocalStorage("tweets", TweetList);
     tweets.addTweet(new Tweet(newTweet));
-    localStorage.setItem("tweets", JSON.stringify(tweets));
+    setToLocalStorage("tweets", tweets);
     addPost();
 }
 
 function addPost() {
-    const tweets = new TweetList(JSON.parse(localStorage.getItem("tweets")));
+    const tweets = getFromLocalStorage("tweets", TweetList);
     tweets.list.forEach(tweet => {
         if (document.querySelectorAll(`.post[dataId="${tweet.id}"]`).length === 0) {
             const post = getTemplate("post-template");
@@ -167,13 +180,18 @@ function addPost() {
 }
 
 function likeOrUnlikePost(event) {
-    const tweets = new TweetList(JSON.parse(localStorage.getItem("tweets")));
+    const tweets = getFromLocalStorage("tweets", TweetList);
     let tweet = tweets.getTweetById(event.target.closest(".post").getAttribute("dataId"));
     tweet.like = !tweet.like;
     tweet.like ? event.target.classList.add("liked") : event.target.classList.remove("liked");
-    localStorage.setItem("tweets", JSON.stringify(tweets));
+    setToLocalStorage("tweets", tweets);
 }
 
-function deletePost() {
-    console.log("deletePost");
+function deletePost(event) {
+    let post = event.target.closest(".post");
+    const postId = post.getAttribute("dataId");
+    document.getElementById("stream").removeChild(post);
+    const tweets = getFromLocalStorage("tweets", TweetList);
+    tweets.removeTweetById(postId);
+    setToLocalStorage("tweets", tweets);
 }
