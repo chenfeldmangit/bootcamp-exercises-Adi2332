@@ -6,7 +6,7 @@
     <link rel="icon" href="resources/bird.svg">
     <link rel="stylesheet" href="Style/css/style.css">
     <script src="JS/script.js"></script>
-<body>
+<body onload="load()">
     <div id="menu">
         <object data="resources/bird.svg" class="menu-icon"></object>
         <button class="menu-button">
@@ -66,7 +66,7 @@
                         <object data="resources/addLocation.svg"></object>
                     </button>
                 </div>
-                <button class="tweet-button">
+                <button class="tweet-button" onclick="addTweet()">
                     <label class="button-label">Tweet</label>
                 </button>
             </div>
@@ -216,6 +216,27 @@
         </div>
     </template>
 
+    <template id="post-template">
+        <div class="post" style="display: none">
+            <div class="post-header">
+                <img src="resources/profile.png" class="button-icon profile-img" alt="profile image">
+                <p class="post-title">title</p>
+            </div>
+            <p class="post-text"></p>
+            <div class="post-actions">
+                <button class="post-action">
+                    <object data="resources/like.svg"></object>
+                </button>
+                <button class="post-action">
+                    <object data="resources/comment.svg"></object>
+                </button>
+                <button class="post-action">
+                    <object data="resources/share.svg"></object>
+                </button>
+            </div>
+        </div>
+    </template>
+
     <div class="dialog">
         <dialog id="edit-profile-dialog">
             <div class="header">
@@ -236,7 +257,7 @@
 
                     <img src="resources/profile.png" class="profile-img" alt="profile image">
                     <div id="edit-profile-img-warp">
-                    <object data="resources/addPhoto.svg" class="edit-img"></object>
+                        <object data="resources/addPhoto.svg" class="edit-img"></object>
                     </div>
                 </div>
 

@@ -8,12 +8,40 @@ class Profile {
         this.following = following;
         this.followers = followers;
     }
+}
 
+class Tweet {
+    constructor(text, like = false) {
+        this.id = getNewTweetId();
+        this.text = text;
+        this.like = like;
+    }
+}
+
+class TweetList {
+    constructor(json) {
+        if (json === undefined)
+            this.list = [];
+        else
+            this.list = json.list;
+    }
+
+    addTweet(tweet) {
+        this.list.splice(0, 0, tweet);
+    }
 }
 
 this.data = {
     profile: new Profile("Adi", 3, "Tel Aviv", "March 2020", 152, 2548, "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid, asperiores assumenda beatae cupiditate dolorem, ea esse fugiat iure mollitia odio odit pariatur perspiciatis possimus qui repellendus sapiente sunt velit.")
 };
+
+function getNewTweetId() {
+    return document.getElementsByClassName("post").length + 1;
+}
+
+function load() {
+    localStorage.setItem("tweets", JSON.stringify(new TweetList()));
+}
 
 function removeProfilePage() {
     let profilePage = document.getElementById("profile-page");
@@ -23,12 +51,12 @@ function removeProfilePage() {
 }
 
 function getTemplate(template) {
-    return document.getElementById(template);
+    return document.getElementById(template).content.cloneNode(true);
 }
 
 function loadProfilePage() {
     removeProfilePage();
-    const profileTemplate = getTemplate("profile-template").content.cloneNode(true);
+    const profileTemplate = getTemplate("profile-template");
     document.body.insertBefore(profileTemplate, document.getElementById("follow"));
     document.getElementById("profile-title").innerHTML = this.data.profile.name;
     document.getElementById("profile-name").innerHTML = this.data.profile.name;
@@ -94,3 +122,25 @@ function saveProfile() {
     closeEditProfile();
     loadProfilePage();
 }
+
+function addTweet() {
+    const newTweet = document.getElementById("write-post-text").value;
+    const tweets = new TweetList(JSON.parse(localStorage.getItem("tweets")));
+    tweets.addTweet(new Tweet(newTweet));
+    localStorage.setItem("tweets", JSON.stringify(tweets));
+}
+
+function addPost() {
+    const tweets = new TweetList(JSON.parse(localStorage.getItem("tweets")));
+    tweets.list.forEach(tweet => {
+        if (tweet.id > document.getElementsByClassName("post").length) {
+            const post = getTemplate("post-template");
+            document.getElementById("stream").insertBefore(post, document.getElementsByClassName("post")[0]);
+            let newPost = document.getElementsByClassName("post-text")[0];
+            newPost.innerHTML = tweet.text;
+            document.getElementsByClassName("post")[0].setAttribute("style", "display:flex;");
+        }
+    });
+}
+
+setInterval(addPost, 5000);

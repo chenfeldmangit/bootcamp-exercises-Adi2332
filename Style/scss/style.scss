@@ -103,6 +103,10 @@ body {
       border: none;
       width: 15%;
       height: 3em;
+
+      & > * {
+        pointer-events: none;
+      }
     }
   }
 
