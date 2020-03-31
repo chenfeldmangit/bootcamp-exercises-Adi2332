@@ -36,11 +36,15 @@ this.data = {
 };
 
 function getNewTweetId() {
-    return document.getElementsByClassName("post").length + 1;
+    let nextTweetId = parseInt(localStorage.getItem("nextTweetId"));
+    localStorage.setItem("nextTweetId", Number(nextTweetId + 1).toString());
+    return nextTweetId;
 }
 
 function load() {
     localStorage.setItem("tweets", JSON.stringify(new TweetList()));
+    localStorage.setItem("nextTweetId", Number(4).toString());
+    setInterval(addPost, 2000);
 }
 
 function removeProfilePage() {
@@ -75,7 +79,7 @@ function loadStream() {
 }
 
 function setStreamDisplay(display) {
-    document.getElementById("stream").setAttribute("style", "display:" + display + ";");
+    document.getElementById("stream").setAttribute("style", `display:${display};`);
 }
 
 function openDialogById(editProfileDialog) {
@@ -128,19 +132,19 @@ function addTweet() {
     const tweets = new TweetList(JSON.parse(localStorage.getItem("tweets")));
     tweets.addTweet(new Tweet(newTweet));
     localStorage.setItem("tweets", JSON.stringify(tweets));
+    addPost();
 }
 
 function addPost() {
     const tweets = new TweetList(JSON.parse(localStorage.getItem("tweets")));
     tweets.list.forEach(tweet => {
-        if (tweet.id > document.getElementsByClassName("post").length) {
+        if (document.querySelectorAll(`.post[data-id="${tweet.id}"]`).length === 0) {
             const post = getTemplate("post-template");
             document.getElementById("stream").insertBefore(post, document.getElementsByClassName("post")[0]);
             let newPost = document.getElementsByClassName("post-text")[0];
             newPost.innerHTML = tweet.text;
+            document.getElementsByClassName("post")[0].setAttribute("data-id", Number(tweet.id).toString());
             document.getElementsByClassName("post")[0].setAttribute("style", "display:flex;");
         }
     });
 }
-
-setInterval(addPost, 5000);
