@@ -8,13 +8,22 @@ class Profile {
         this.following = following;
         this.followers = followers;
     }
+
+    static fromJson(json) {
+        return new Profile(json.name, json.tweetsNumber, json.location,
+            json.joinOn, json.following, json.followers, json.bio);
+    }
 }
 
 class Tweet {
-    constructor(text, like = false) {
-        this.id = getNewTweetId();
+    constructor(text, id = getNewTweetId(), like = false) {
+        this.id = id;
         this.text = text.replace(/\r?\n/g, '<br />');
         this.like = like;
+    }
+
+    static fromJson(json) {
+        return new Tweet(json.text, json.id, json.like);
     }
 }
 
@@ -23,17 +32,17 @@ class TweetList {
         if (json === undefined)
             this.list = [];
         else
-            this.list = json.list;
+            this.list = json.list.map(tweet => Tweet.fromJson(tweet));
     }
 
     addTweet(tweet) {
         this.list.splice(0, 0, tweet);
     }
-}
 
-this.data = {
-    profile: new Profile("Adi", 3, "Tel Aviv", "March 2020", 152, 2548, "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid, asperiores assumenda beatae cupiditate dolorem, ea esse fugiat iure mollitia odio odit pariatur perspiciatis possimus qui repellendus sapiente sunt velit.")
-};
+    getTweetById(id) {
+        return this.list.filter(tweet => tweet.id === parseInt(id))[0];
+    }
+}
 
 function getNewTweetId() {
     let nextTweetId = parseInt(localStorage.getItem("nextTweetId"));
@@ -44,6 +53,10 @@ function getNewTweetId() {
 function load() {
     localStorage.setItem("tweets", JSON.stringify(new TweetList()));
     localStorage.setItem("nextTweetId", Number(4).toString());
+    localStorage.setItem("profile", JSON.stringify(new Profile("Adi", 3, "Tel Aviv", "March 2020",
+        152, 2548, "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid, " +
+        "asperiores assumenda beatae cupiditate dolorem, ea esse fugiat iure mollitia odio odit pariatur perspiciatis " +
+        "possimus qui repellendus sapiente sunt velit.")));
     setInterval(addPost, 2000);
 }
 
@@ -62,14 +75,15 @@ function loadProfilePage() {
     removeProfilePage();
     const profileTemplate = getTemplate("profile-template");
     document.body.insertBefore(profileTemplate, document.getElementById("follow"));
-    document.getElementById("profile-title").innerHTML = this.data.profile.name;
-    document.getElementById("profile-name").innerHTML = this.data.profile.name;
-    document.getElementById("tweet-number").innerHTML = this.data.profile.tweetsNumber + " Tweets";
-    document.getElementById("bio").innerHTML = "Joined " + this.data.profile.bio;
-    document.getElementById("location").innerHTML = this.data.profile.location;
-    document.getElementById("join-on").innerHTML = "Joined " + this.data.profile.joinOn;
-    document.getElementById("following").innerHTML = this.data.profile.following;
-    document.getElementById("followers").innerHTML = this.data.profile.followers;
+    let profile = Profile.fromJson(JSON.parse(localStorage.getItem("profile")));
+    document.getElementById("profile-title").innerHTML = profile.name;
+    document.getElementById("profile-name").innerHTML = profile.name;
+    document.getElementById("tweet-number").innerHTML = profile.tweetsNumber + " Tweets";
+    document.getElementById("bio").innerHTML = "Joined " + profile.bio;
+    document.getElementById("location").innerHTML = profile.location;
+    document.getElementById("join-on").innerHTML = "Joined " + profile.joinOn;
+    document.getElementById("following").innerHTML = profile.following;
+    document.getElementById("followers").innerHTML = profile.followers;
     setStreamDisplay("none");
 }
 
@@ -98,9 +112,10 @@ function editProfile() {
     openDialogById("edit-profile-dialog");
     const inputs = document.getElementById("edit-profile-form").getElementsByTagName("input");
 
-    document.getElementById("name-input").value = this.data.profile.name;
-    document.getElementById("bio-input").value = this.data.profile.bio;
-    document.getElementById("location-input").value = this.data.profile.location;
+    let profile = Profile.fromJson(JSON.parse(localStorage.getItem("profile")));
+    document.getElementById("name-input").value = profile.name;
+    document.getElementById("bio-input").value = profile.bio;
+    document.getElementById("location-input").value = profile.location;
 
     for (let i = 0; i < inputs.length; i++) {
         validateLength(inputs[i].id);
@@ -120,9 +135,11 @@ function preventRefresh() {
 }
 
 function saveProfile() {
-    this.data.profile.name = document.getElementById("name-input").value;
-    this.data.profile.bio = document.getElementById("bio-input").value;
-    this.data.profile.location = document.getElementById("location-input").value;
+    let profile = Profile.fromJson(JSON.parse(localStorage.getItem("profile")));
+    profile.name = document.getElementById("name-input").value;
+    profile.bio = document.getElementById("bio-input").value;
+    profile.location = document.getElementById("location-input").value;
+    localStorage.setItem("profile", JSON.stringify(profile));
     closeEditProfile();
     loadProfilePage();
 }
@@ -138,13 +155,21 @@ function addTweet() {
 function addPost() {
     const tweets = new TweetList(JSON.parse(localStorage.getItem("tweets")));
     tweets.list.forEach(tweet => {
-        if (document.querySelectorAll(`.post[data-id="${tweet.id}"]`).length === 0) {
+        if (document.querySelectorAll(`.post[dataId="${tweet.id}"]`).length === 0) {
             const post = getTemplate("post-template");
             document.getElementById("stream").insertBefore(post, document.getElementsByClassName("post")[0]);
             let newPost = document.getElementsByClassName("post-text")[0];
             newPost.innerHTML = tweet.text;
-            document.getElementsByClassName("post")[0].setAttribute("data-id", Number(tweet.id).toString());
+            document.getElementsByClassName("post")[0].setAttribute("dataId", Number(tweet.id).toString());
             document.getElementsByClassName("post")[0].setAttribute("style", "display:flex;");
         }
     });
+}
+
+function likePost(event) {
+    const postId = event.closest(".post").getAttribute("dataId");
+    const tweets = new TweetList(JSON.parse(localStorage.getItem("tweets")));
+    let tweet = tweets.getTweetById(postId);
+    tweet.like = true;
+    localStorage.setItem("tweets", JSON.stringify(tweets));
 }

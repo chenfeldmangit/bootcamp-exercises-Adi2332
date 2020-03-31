@@ -77,6 +77,9 @@ body .dialog {
   align-items: flex-start;
   border-radius: 2em;
 }
+#stream #write-post .post-actions .post-action > * {
+  pointer-events: none;
+}
 #stream #write-post .post-actions .post-action:hover {
   background: #e9bfff;
   justify-content: center;
@@ -143,6 +146,9 @@ body .dialog {
   height: 3em;
   align-items: flex-start;
   border-radius: 2em;
+}
+#stream .post .post-actions .post-action > * {
+  pointer-events: none;
 }
 #stream .post .post-actions .post-action:hover {
   background: #e9bfff;

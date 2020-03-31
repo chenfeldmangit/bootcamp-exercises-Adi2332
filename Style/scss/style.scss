@@ -83,6 +83,10 @@ body {
       margin-right: 4em;
 
       .post-action {
+        & > * {
+          pointer-events: none;
+        }
+
         &:hover {
           background: $button-color;
           justify-content: center;
@@ -149,7 +153,8 @@ body {
       width: 80%;
       margin-right: 5em;
       margin-bottom: 1em;
-      &>* {
+
+      & > * {
         width: 100%;
         //align-self: flex-end;
         border-radius: 2em;
@@ -163,6 +168,10 @@ body {
       margin-right: 4em;
 
       .post-action {
+        & > * {
+          pointer-events: none;
+        }
+
         &:hover {
           background: $button-color;
           justify-content: center;
