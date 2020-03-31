@@ -87,7 +87,7 @@
                     <object data="resources/like.svg"></object>
                 </button>
                 <button class="post-action">
-                    <object data="resources/comment.svg"></object>
+                    <object data="resources/comment.svg" name="like"></object>
                 </button>
                 <button class="post-action">
                     <object data="resources/share.svg"></object>
@@ -232,7 +232,7 @@
             <div class="post-attachment">
             </div>
             <div class="post-actions">
-                <button class="post-action" onclick="likePost(this)">
+                <button class="post-action" onclick="likeOrUnlikePost(event)">
                     <object data="resources/like.svg"></object>
                 </button>
                 <button class="post-action">

@@ -166,10 +166,10 @@ function addPost() {
     });
 }
 
-function likePost(event) {
-    const postId = event.closest(".post").getAttribute("dataId");
+function likeOrUnlikePost(event) {
     const tweets = new TweetList(JSON.parse(localStorage.getItem("tweets")));
-    let tweet = tweets.getTweetById(postId);
-    tweet.like = true;
+    let tweet = tweets.getTweetById(event.target.closest(".post").getAttribute("dataId"));
+    tweet.like = !tweet.like;
+    tweet.like ? event.target.classList.add("liked") : event.target.classList.remove("liked");
     localStorage.setItem("tweets", JSON.stringify(tweets));
 }

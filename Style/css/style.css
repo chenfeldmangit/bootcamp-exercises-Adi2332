@@ -154,6 +154,9 @@ body .dialog {
   background: #e9bfff;
   justify-content: center;
 }
+#stream .post .post-actions .liked:first-child {
+  background: #e9bfff;
+}
 
 #menu {
   display: flex;

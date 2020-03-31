@@ -184,6 +184,12 @@ body {
         align-items: flex-start;
         border-radius: 2em;
       }
+
+      .liked {
+        &:first-child {
+          background: $button-color;
+        }
+      }
     }
   }
 }
