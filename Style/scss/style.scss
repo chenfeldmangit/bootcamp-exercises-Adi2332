@@ -143,13 +143,17 @@ body {
     }
 
     .post-attachment {
+      align-self: flex-end;
       max-width: 50%;
       max-height: 10%;
       width: 80%;
-      align-self: flex-end;
-      border-radius: 2em;
       margin-right: 5em;
       margin-bottom: 1em;
+      &>* {
+        width: 100%;
+        //align-self: flex-end;
+        border-radius: 2em;
+      }
     }
 
     .post-actions {
