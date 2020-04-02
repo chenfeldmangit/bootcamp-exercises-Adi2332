@@ -1,5 +1,5 @@
 class Tweet {
-    constructor(text, id = getNewTweetId(), like = false) {
+    constructor(text, id = Util.getNewTweetId(), like = false) {
         this.id = id;
         this.text = text.replace(/\r?\n/g, '<br />');
         this.like = like;

@@ -1,8 +1,3 @@
-function getNewTweetId() {
-    let nextTweetId = LocalStorageApi.getInt("nextTweetId");
-    LocalStorageApi.setInt("nextTweetId", Number(nextTweetId + 1));
-    return nextTweetId;
-}
 
 function load() {
     LocalStorageApi.setAsJson("tweets", new TweetList([]));
@@ -14,20 +9,9 @@ function load() {
     setInterval(addPost, 2000);
 }
 
-function removeProfilePage() {
-    let profilePage = document.getElementById("profile-page");
-    if (profilePage != null) {
-        document.body.removeChild(profilePage);
-    }
-}
-
-function getTemplate(template) {
-    return document.getElementById(template).content.cloneNode(true);
-}
-
 function loadProfilePage() {
-    removeProfilePage();
-    const profileTemplate = getTemplate("profile-template");
+    Util.removeProfilePage();
+    const profileTemplate = Util.getTemplate("profile-template");
     document.body.insertBefore(profileTemplate, document.getElementById("follow"));
     let profile = LocalStorageApi.getInstantOfClass("profile", Profile);
     document.getElementById("profile-title").innerHTML = profile.name;
@@ -38,32 +22,16 @@ function loadProfilePage() {
     document.getElementById("join-on").innerHTML = "Joined " + profile.joinOn;
     document.getElementById("following").innerHTML = profile.following;
     document.getElementById("followers").innerHTML = profile.followers;
-    setStreamDisplay("none");
+    Util.setStreamDisplay("none");
 }
 
 function loadStream() {
-    removeProfilePage();
-    setStreamDisplay("flex");
-}
-
-function setStreamDisplay(display) {
-    document.getElementById("stream").setAttribute("style", `display:${display};`);
-}
-
-function openDialogById(editProfileDialog) {
-    let dialog = document.getElementById(editProfileDialog);
-    dialog.open = true;
-    dialog.parentElement.setAttribute("style", "display:block;");
-}
-
-function closeDialogById(editProfileDialog) {
-    let dialog = document.getElementById(editProfileDialog);
-    dialog.open = false;
-    dialog.parentElement.setAttribute("style", "display:none;")
+    Util.removeProfilePage();
+    Util.setStreamDisplay("flex");
 }
 
 function editProfile() {
-    openDialogById("edit-profile-dialog");
+    Util.openDialogById("edit-profile-dialog");
     const inputs = document.getElementById("edit-profile-form").getElementsByTagName("input");
 
     let profile = LocalStorageApi.getInstantOfClass("profile", Profile);
@@ -77,7 +45,7 @@ function editProfile() {
 }
 
 function closeEditProfile() {
-    closeDialogById("edit-profile-dialog");
+    Util.closeDialogById("edit-profile-dialog");
 }
 
 function validateLength(id) {
@@ -98,6 +66,8 @@ function saveProfile() {
     loadProfilePage();
 }
 
+
+/* TODO: should split to tweet API*/
 function addTweet() {
     const newTweet = document.getElementById("write-post-text").value;
     const tweets = LocalStorageApi.getInstantOfClass("tweets", TweetList);
@@ -109,7 +79,7 @@ function addPost() {
     const tweets = LocalStorageApi.getInstantOfClass("tweets", TweetList);
     tweets.list.forEach(tweet => {
         if (document.querySelectorAll(`.post[dataId="${tweet.id}"]`).length === 0) {
-            const post = getTemplate("post-template");
+            const post = Util.getTemplate("post-template");
             document.getElementById("stream").insertBefore(post, document.getElementsByClassName("post")[0]);
             let newPost = document.getElementsByClassName("post-text")[0];
             newPost.innerHTML = tweet.text;
